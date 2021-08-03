@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Wall</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+   <div class="container container-flex">
+       <section>
+           <h1>Login</h1>
+            {% with login_messages = get_flashed_messages(category_filter=["login"]) %}
+            {% if login_messages %}
+            <ul class="errors">
+            {% for message in login_messages %}
+                 <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+           <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control">
+                </div>
+                <button type="submit">Login</button>
+           </form>
+       </section>
+       <section>
+           <h1>Register</h1>
+            {% with reg_messages = get_flashed_messages(category_filter=["register"]) %}
+            {% if reg_messages %}
+            <ul class="errors">
+            {% for message in reg_messages %}
+                 <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+           <form action="/register" method="POST">
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="first_name" id="first_name" name="first_name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input type="last_name" id="last_name" name="last_name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="confirm_pw">Password</label>
+                    <input type="password" id="confirm_pw" name="confirm_pw" class="form-control">
+                </div>
+                <button type="submit">Register</button>
+           </form>
+       </section>
+   </div>
+</body>
+</html>
