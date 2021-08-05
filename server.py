@@ -1,5 +1,6 @@
 from home_app import app
-from home_app.controllers import home_controller
+from home_app.controllers import home_controller, wall_controller
+
 
 if __name__ == "__main__":
     app.run(debug=True)

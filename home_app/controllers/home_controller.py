@@ -12,7 +12,7 @@ def index():
 def register():
     if User.validate(request.form):
         session[LOGIN_KEY] = User.save(request.form)
-        return redirect("/success")
+        return redirect("/wall")
     return redirect("/")
 
 @app.route("/login", methods=["POST"])
@@ -20,7 +20,12 @@ def login():
     login_result = User.authenticate(request.form["email"], request.form["password"])
     if login_result:
         session[LOGIN_KEY] = login_result
-        return redirect("/success")
+        return redirect("/wall")
+    return redirect("/")
+
+@app.route("/logout")
+def logout():
+    session.clear();
     return redirect("/")
 
 @app.route("/success")
