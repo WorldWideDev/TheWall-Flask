@@ -32,7 +32,7 @@ class User:
         return user.id
 
     @classmethod
-    def validate(cls, data):
+    def validate(cls, data:"form submission from request.forms"):
         errors = []
         if cls.get_one_by_email(data["email"]):
             errors.append("Email already exists")

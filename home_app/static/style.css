@@ -1,5 +1,10 @@
+html * {
+    margin: 0;
+    padding: 0;
+}
 body {
     background-color: #353333;
+    font-family: 'Hermit', monospace;
 }
 h1,h2 {
     color: orange;
@@ -11,7 +16,7 @@ ul.errors {
     list-style: none;
 }
 ul.errors > li {
-    color: red;
+    color: #ff7474;
     font-weight: bold;
 }
 
@@ -23,7 +28,48 @@ ul.errors > li {
     flex-basis: 50%;
     padding: 2em;
 }
+    section.flex-child-posts {
+        flex-basis: 80%;
+    }
+   
 .container-flex > section > ul {
     border: solid 1px orange;
     padding: 0.3em 2em;
+}
+.form-group {
+    margin: .5em 0;
+}
+nav.wall-nav {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: orange 1px solid;
+    align-items: center;
+    margin-top: .5em;
+}
+.posts {
+    display: flex;
+    flex-direction: column;
+}
+.post {
+    /* border: solid 1px rgb(103, 215, 103); */
+}
+.post-text-item {
+    padding: 0.5em;
+}
+.post > h6, .post > p {
+    background-color: #202020;
+}
+.comment > h6, .comment > p {
+    background-color: #585858;
+}
+.comment {
+    margin-left: 3em;
+    font-size: 0.9em;
+    /* border: dotted 2px white; */
+}
+.form-row{
+    display: flex;
+}
+.comment-box {
+    height: 1em;
 }
